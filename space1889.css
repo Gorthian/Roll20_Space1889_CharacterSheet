@@ -1,0 +1,87 @@
+/*
+	EDITED by 			Gorthian
+	Version				1.0
+	Letzte Änderung		2022-05-02
+	
+	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
+	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
+	Bugs & Issues		https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/issues
+*/
+
+
+/*             GRUNDLAGEN                          */
+
+div.sheet-wrapper {
+	--sheet-bg			: #ffffff;
+	--sheet-text-color	: #000000;	
+}
+
+p.sheet-nowrap {
+	white-space			: nowrap;
+}
+
+/*             GRIDS                               */
+
+div.sheet-space1889 {
+	background-color		: var(--sheet-bg);
+	color					: var(--sheet-text-color);
+	display 				: grid;
+	grid-template-areas		: 	"content"
+								"footer"
+}
+
+div.sheet-content {
+	display					: grid;
+	grid-area				: content;
+	grid-template-areas		: 	"basics basics"
+								"primary-attributes	style"
+								"secondary-attributes health"
+								"skills skills"
+								"combat	misc"
+}
+
+div.sheet-basics {
+	display					: grid;
+	grid-area				: basics;
+}
+
+div.sheet-primary-attributes {
+	display					: grid;
+	grid-area				: primary-attributes;
+}
+
+div.sheet-secondary-attributes {
+	display					: grid;
+	grid-area				: secondary-attributes;
+}
+
+div.sheet-style {
+	display					: grid;
+	grid-area				: style;
+}
+
+div.sheet-health {
+	display					: grid;
+	grid-area				: health;
+}
+
+div.sheet-skills {
+	display					: grid;
+	grid-area				: skills;
+}
+
+div.sheet-combat {
+	display					: grid;
+	grid-area				: combat;
+}
+
+div.sheet-misc {
+	display					: grid;
+	grid-area				: misc;
+}
+
+div.sheet-footer {
+	display					: grid;
+	grid-area				: footer;
+}
+
