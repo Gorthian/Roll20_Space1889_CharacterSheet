@@ -27,12 +27,12 @@
 		</div>
 		<div class="sheet-secondary-attributes sheet-box">
 			<h1><span data-i18n="secondary-attributes"></h1>
-			<p><span class="sheet-label" data-i18n="size"></span><input type="number" name="attr_size-calc" /><input type="number" name="attr_size-mod" /><input type="number" name="attr_size-sum" /></p>
-			<p><span class="sheet-label" data-i18n="movement"></span><input type="number" name="attr_movement-calc" /><input type="number" name="attr_movement-mod" /><input type="number" name="attr_movement-sum" /></p>
-			<p><span class="sheet-label" data-i18n="perception"></span><input type="number" name="attr_perception-calc" /><input type="number" name="attr_perception-mod" /><input type="number" name="attr_perception-sum" /></p>
-			<p><span class="sheet-label" data-i18n="initiative"></span><input type="number" name="attr_initiative-calc" /><input type="number" name="attr_initiative-mod" /><input type="number" name="attr_initiative-sum" /></p>
-			<p><span class="sheet-label" data-i18n="defense"></span><input type="number" name="attr_defense-calc" /><input type="number" name="attr_defense-mod" /><input type="number" name="attr_defense-sum" /></p>
-			<p><span class="sheet-label" data-i18n="stunned"></span><input type="number" name="attr_stunned-calc" /><input type="number" name="attr_stunned-mod" /><input type="number" name="attr_stunned-sum" /></p>
+			<p><span class="sheet-label" data-i18n="size"></span><input type="number" name="attr_size-calc" readonly/><input type="number" name="attr_size-mod" /><input type="number" name="attr_size-sum" readonly/></p>
+			<p><span class="sheet-label" data-i18n="movement"></span><input type="number" name="attr_movement-calc" readonly/><input type="number" name="attr_movement-mod" /><input type="number" name="attr_movement-sum" readonly/></p>
+			<p><span class="sheet-label" data-i18n="perception"></span><input type="number" name="attr_perception-calc" readonly/><input type="number" name="attr_perception-mod" /><input type="number" name="attr_perception-sum" readonly/></p>
+			<p><span class="sheet-label" data-i18n="initiative"></span><input type="number" name="attr_initiative-calc" readonly/><input type="number" name="attr_initiative-mod" /><input type="number" name="attr_initiative-sum" readonly/></p>
+			<p><span class="sheet-label" data-i18n="defense"></span><input type="number" name="attr_defense-calc" readonly/><input type="number" name="attr_defense-mod" /><input type="number" name="attr_defense-sum" readonly/></p>
+			<p><span class="sheet-label" data-i18n="stunned"></span><input type="number" name="attr_stunned-calc" readonly/><input type="number" name="attr_stunned-mod" /><input type="number" name="attr_stunned-sum" readonly/></p>
 		</div>
 		<div class="sheet-style sheet-box">
 			<h1><span data-i18n="style"></h1>
@@ -40,7 +40,7 @@
 		</div>
 		<div class="sheet-health sheet-box">
 			<h1><span data-i18n="health"></h1>
-			<p><input type="number" name="attr_health" /></p>
+			<p><input type="number" name="attr_health_current" /> / <input type="number" name="attr_health_max" readonly/></p>
 		</div>
 		<div class="sheet-skills sheet-box">
 			<h1><span data-i18n="skills"></h1>
@@ -111,4 +111,198 @@
 
 <!-- SheetWorker //-->
 <script type="text/worker">
+	/* Globale Variablen -- Start */
+	const aAttributes = ["constitution","dexterity","strength","charisma","intelligence","wilpower"];
+	const aSecondaryAttributes = ["size","movement","perception","initiative","defense","stunned"];
+
+	/* Event-Listener -- Start */
+	on("sheet:opened", function () {
+		recalcValues();
+	});
+
+	/* Änderungen an Attributen */
+	aAttributes.forEach(sAttribute => {
+        on(`change:${sAttribute}`, function() {
+			console.log("[CHANGE] " + sAttribute);
+            changedAttribute(sAttribute);
+        });
+    });
+
+	/* Änderungen an sekundären Attributen */
+	aSecondaryAttributes.forEach(sAttribute => {
+        on(`change:${sAttribute}-mod`, function() {
+			console.log("[CHANGE] " + sAttribute);
+            changedAttribute(sAttribute);
+        });
+    });
+
+	/* Event-Listener -- Ende */	
+		
+	/* Funktionen -- Start */
+	function recalcValues() {
+		console.log("[recalcValues]");
+		aAttributes.forEach(sAttribute => {
+			changedAttribute(sAttribute);
+		});
+	};
+
+	function changedAttribute(sAttribute) {
+		console.log("[changedAttribute] " + sAttribute);
+		
+		getAttrs([sAttribute], function (values){
+			let iAttribute = parseInt(values[sAttribute]);
+			let aAttributes = {};
+			
+			aAttributes[sAttribute] = iAttribute;
+			setAttrs(aAttributes);
+			
+			switch (sAttribute) {
+				case "constitution":					
+					recalcDefense();
+					recalcStunned();
+					recalcHealth();
+					break;
+				case "dexterity":
+					recalcMovement();
+					recalcInitiative();
+					recalcDefense();
+					break;
+				case "strength":
+					recalcMovement();
+					break;
+				case "charisma":
+					break;
+				case "intelligence":
+					recalcPerception();
+					recalcInitiative();
+					break;
+				case "willpower":
+					recalcPerception();
+					recalcHealth();
+					break;
+				case "size":
+					recalcSize();
+					recalcDefense();
+					recalcHealth();
+					break;
+				case "movement":
+					recalcMovement();
+					break;
+				case "perception":
+					recalcPerception();
+					break;
+				case "initiative":
+					recalcInitiative();
+					break;
+				case "defense":
+					recalcDefense();
+					break;
+				case "stunned":
+					recalcStunned();
+					break;
+				default:
+			}			
+		});
+	}
+	
+	function recalcSize() {
+		console.log("[recalcSize]");
+		getAttrs(["size-mod"], function (values){
+			let iSizeMod = parseInt(values["size-mod"]||0);
+			let iSizeSum = iSizeMod;
+
+			aAttributes["size-sum"] = iSizeSum;
+			setAttrs(aAttributes);			
+		});
+	}
+	
+	function recalcMovement() {
+		console.log("[recalcMovement]");
+		getAttrs(["strength","dexterity","movement-mod"], function (values){
+			let iStrength = parseInt(values["strength"]||0);
+			let iDexterity = parseInt(values["dexterity"]||0);
+			let iMovementMod = parseInt(values["movement-mod"]||0);
+			let iMovementCalc = iStrength + iDexterity;
+			let iMovementSum = iMovementCalc + iMovementMod;
+
+			aAttributes["movement-calc"] = iMovementCalc;
+			aAttributes["movement-sum"] = iMovementSum;
+			setAttrs(aAttributes);			
+		});
+	}
+
+	function recalcPerception() {
+		console.log("[recalcPerception]");
+		getAttrs(["intelligence","willpower","perception-mod"], function (values){
+			let iIntelligence = parseInt(values["intelligence"]||0);
+			let iWillpower = parseInt(values["willpower"]||0);
+			let iPerceptionMod = parseInt(values["perception-mod"]||0);
+			let iPerceptionCalc = iIntelligence + iWillpower;
+			let iPerceptionSum = iPerceptionCalc + iPerceptionMod;
+
+			aAttributes["perception-calc"] = iPerceptionCalc;
+			aAttributes["perception-sum"] = iPerceptionSum;
+			setAttrs(aAttributes);			
+		});
+	}
+
+	function recalcInitiative() {
+		console.log("[recalcInitiative]");
+		getAttrs(["intelligence","dexterity","initiative-mod"], function (values){
+			let iIntelligence = parseInt(values["intelligence"]||0);
+			let iDexterity = parseInt(values["dexterity"]||0);
+			let iInitiativeMod = parseInt(values["initiative-mod"]||0);
+			let iInitiativeCalc = iIntelligence + iDexterity;
+			let iInitiativeSum = iInitiativeCalc + iInitiativeMod;
+
+			aAttributes["initiative-calc"] = iInitiativeCalc;
+			aAttributes["initiative-sum"] = iInitiativeSum;
+			setAttrs(aAttributes);			
+		});
+	}
+
+	function recalcDefense() {
+		console.log("[recalcDefense]");
+		getAttrs(["constitution","dexterity","size-sum","defense-mod"], function (values){
+			let iConstitution = parseInt(values["constitution"]||0);
+			let iDexterity = parseInt(values["dexterity"]||0);
+			let iSize = parseInt(values["size-sum"]||0);
+			let iDefenseMod = parseInt(values["defense-mod"]||0);
+			let iDefenseCalc = iConstitution + iDexterity - iSize;
+			let iDefenseSum = iDefenseCalc + iDefenseMod;
+
+			aAttributes["defense-calc"] = iDefenseCalc;
+			aAttributes["defense-sum"] = iDefenseSum;
+			setAttrs(aAttributes);			
+		});
+	}
+
+	function recalcStunned() {
+		console.log("[recalcStunned]");
+		getAttrs(["constitution","stunned-mod"], function (values){
+			let iConstitution = parseInt(values["constitution"]||0);
+			let iStunnedMod = parseInt(values["stunned-mod"]||0);
+			let iStunnedCalc = iConstitution;
+			let iStunnedSum = iStunnedCalc + iStunnedMod;
+
+			aAttributes["stunned-calc"] = iStunnedCalc;
+			aAttributes["stunned-sum"] = iStunnedSum;
+			setAttrs(aAttributes);			
+		});
+	}
+
+	function recalcHealth() {
+		console.log("[recalcHealth]");
+		getAttrs(["constitution","willpower","size-sum"], function (values){
+			let iConstitution = parseInt(values["constitution"]||0);
+			let iWillpower = parseInt(values["willpower"]||0);
+			let iSize = parseInt(values["size-sum"]||0);
+			let iHealth = iConstitution + iWillpower + iSize;
+
+			aAttributes["health_max"] = iHealth;
+			setAttrs(aAttributes);			
+		});
+	}
+	
+	/* Funktionen -- Ende */
 </script>
