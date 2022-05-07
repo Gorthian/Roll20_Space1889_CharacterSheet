@@ -11,12 +11,12 @@
 <!-- Sheet //-->
 <div class="sheet-wrapper sheet-space1889">
 	<div class="sheet-content">
-		<div class="sheet-basics">
+		<div class="sheet-basics sheet-box">
 			<p><span class="sheet-label" data-i18n="name"></span><input type="text" name="attr_character_name" /></p>
 			<p><span class="sheet-label" data-i18n="archetype"></span><input type="text" name="attr_archetype" /></p>
 			<p><span class="sheet-label" data-i18n="motivation"></span><input type="text" name="attr_motivation" /></p>
 		</div>
-		<div class="sheet-primary-attributes">
+		<div class="sheet-primary-attributes sheet-box">
 			<h1><span data-i18n="primary-attributes"></h1>
 			<p><span class="sheet-label" data-i18n="constitution"></span><input type="number" name="attr_constitution" /></p>
 			<p><span class="sheet-label" data-i18n="dexterity"></span><input type="number" name="attr_dexterity" /></p>
@@ -25,7 +25,7 @@
 			<p><span class="sheet-label" data-i18n="intelligence"></span><input type="number" name="attr_intelligence" /></p>
 			<p><span class="sheet-label" data-i18n="willpower"></span><input type="number" name="attr_willpower" /></p>
 		</div>
-		<div class="sheet-secondary-attributes">
+		<div class="sheet-secondary-attributes sheet-box">
 			<h1><span data-i18n="secondary-attributes"></h1>
 			<p><span class="sheet-label" data-i18n="size"></span><input type="number" name="attr_size-calc" /><input type="number" name="attr_size-mod" /><input type="number" name="attr_size-sum" /></p>
 			<p><span class="sheet-label" data-i18n="movement"></span><input type="number" name="attr_movement-calc" /><input type="number" name="attr_movement-mod" /><input type="number" name="attr_movement-sum" /></p>
@@ -34,18 +34,18 @@
 			<p><span class="sheet-label" data-i18n="defense"></span><input type="number" name="attr_defense-calc" /><input type="number" name="attr_defense-mod" /><input type="number" name="attr_defense-sum" /></p>
 			<p><span class="sheet-label" data-i18n="stunned"></span><input type="number" name="attr_stunned-calc" /><input type="number" name="attr_stunned-mod" /><input type="number" name="attr_stunned-sum" /></p>
 		</div>
-		<div class="sheet-style">
+		<div class="sheet-style sheet-box">
 			<h1><span data-i18n="style"></h1>
 				<p><input type="number" name="attr_style" /></p>
 		</div>
-		<div class="sheet-health">
+		<div class="sheet-health sheet-box">
 			<h1><span data-i18n="health"></h1>
 			<p><input type="number" name="attr_health" /></p>
 		</div>
-		<div class="sheet-skills">
+		<div class="sheet-skills sheet-box">
 			<h1><span data-i18n="skills"></h1>
 			<fieldset class="repeating_skills">
-				<div class="sheet-skills sheet-nowrap">
+				<div class="sheet-skillentry">
 					<input type="text" name="attr_skill-name" value="">
 					<select name="attr_skill-attribute">
 						<option value="constitution" data-i18n="constitution-short"></option>
@@ -55,16 +55,16 @@
 						<option value="intelligence" data-i18n="intelligence-short"></option>
 						<option value="willpower" data-i18n="willpower-short"></option>
 					</select>
-					+<input type="text" name="attr_skill-level" value="">
-					=<input type="text" name="attr_skill-value" value="">
-					(<input type="text" name="attr_skill-average" value="">)
+					+<input type="number" name="attr_skill-level" value="">
+					=<input type="number" name="attr_skill-value" value="">
+					(<input type="number" name="attr_skill-average" value="">)
 				</div>
 			</fieldset>
 		</div>
-		<div class="sheet-combat">
+		<div class="sheet-combat sheet-box">
 			<h1><span data-i18n="combat"></h1>
 		</div>
-		<div class="sheet-misc">
+		<div class="sheet-misc sheet-box">
 			<h1><span data-i18n="misc"></h1>
 		</div>
 	</div>

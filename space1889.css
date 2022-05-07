@@ -1,7 +1,7 @@
 /*
 	EDITED by 			Gorthian
 	Version				1.0
-	Letzte Änderung		2022-05-02
+	Letzte Änderung		2022-05-07
 	
 	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
@@ -16,7 +16,7 @@ div.sheet-wrapper {
 	--sheet-text-color	: #000000;	
 }
 
-p.sheet-nowrap {
+.sheet-nowrap {
 	white-space			: nowrap;
 }
 
@@ -34,8 +34,8 @@ div.sheet-content {
 	display					: grid;
 	grid-area				: content;
 	grid-template-areas		: 	"basics basics"
-								"primary-attributes	style"
-								"secondary-attributes health"
+								"primary-attributes	secondary-attributes"
+								"style health"
 								"skills skills"
 								"combat	misc"
 }
@@ -45,14 +45,33 @@ div.sheet-basics {
 	grid-area				: basics;
 }
 
+div.sheet-basics span.sheet-label {
+	display					: inline-block;
+	width					: 30%;
+}
+
 div.sheet-primary-attributes {
 	display					: grid;
 	grid-area				: primary-attributes;
 }
 
+div.sheet-primary-attributes span.sheet-label {
+	display					: inline-block;
+	width					: 30%;
+}
+
+div.sheet-primary-attributes input {
+	display					: inline-block;
+}
+
 div.sheet-secondary-attributes {
 	display					: grid;
 	grid-area				: secondary-attributes;
+}
+
+div.sheet-secondary-attributes span.sheet-label {
+	display					: inline-block;
+	width					: 30%;
 }
 
 div.sheet-style {
@@ -85,3 +104,16 @@ div.sheet-footer {
 	grid-area				: footer;
 }
 
+/*             LAYOUTS				*/
+
+div.sheet-box {
+	border				: 1px solid black;
+	border-radius		: 10px;
+	background-color	: lightgray;
+	padding				: 5px;
+	margin				: 5px;
+}
+
+div.sheet-skillentry {
+	display				: flex;
+}
