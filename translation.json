@@ -8,7 +8,6 @@
   "health" : " Gesundheit",
   "skills" : "Fertigkeiten",
   "combat" : "Kampf",
-  "misc" : "Verschiedenes",
   "constitution" : "Konstitution",
   "constitution-short" : "Kon",
   "dexterity" : "Geschicklichkeit",
@@ -38,5 +37,8 @@
   "speed"  : "Tempo",
   "weight"  : "Gewicht",
   "ammo"  : "Munition",
-  "note"  : "Notiz"
+  "note"  : "Notiz",
+  "talents" : "Talente",
+  "ressources" : "Ressourcen",
+  "weaknesses" : "Schwächen"
 }

@@ -33,6 +33,7 @@ div.sheet-space1889 {
 div.sheet-content {
 	display					: grid;
 	grid-area				: content;
+	grid-template-columns	: 50% 50%;
 	grid-template-areas		: 	"basics basics"
 								"primary-attributes	secondary-attributes"
 								"style health"

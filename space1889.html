@@ -61,10 +61,10 @@
 				</div>
 			</fieldset>
 		</div>
-		<div class="sheet-combat sheet-box">
+		<div class="sheet-combat">
 			<h1><span data-i18n="combat"></h1>
-			<fieldset class="repeating_waepons">
-				<div class="sheet-weaponentry">
+			<fieldset class="repeating_weapons">
+				<div class="sheet-weaponentry sheet-box">
 					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="weapon"></span><input type="text" name="attr_weapon-name" value""/></div>
 					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="damage"></span><input type="number" name="attr_weapon-damage" value""/></div>
 					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="modifier"></span><input type="number" name="attr_weapon-modifier" value""/></div>
@@ -80,8 +80,25 @@
 				</div>
 			</fieldset>
 		</div>
-		<div class="sheet-misc sheet-box">
-			<h1><span data-i18n="misc"></h1>			
+		<div class="sheet-misc">
+			<div class="sheet-box">
+				<h2><span data-i18n="talents"></span></h2>
+				<fieldset class="repeating_talents">
+					<input type="text" name="attr_talent-name" value="">
+				</fieldset>
+			</div>
+			<div class="sheet-box">
+				<h2><span data-i18n="ressources"></span></h2>
+				<fieldset class="repeating_ressources">
+					<input type="text" name="attr_ressources-name" value="">
+				</fieldset>
+			</div>
+			<div class="sheet-box">
+				<h2><span data-i18n="weaknesses"></span></h2>
+				<fieldset class="repeating_weaknesses">
+					<input type="text" name="attr_weakness-name" value="">
+				</fieldset>
+			</div>
 		</div>
 	</div>
 	<div class="sheet-footer">
