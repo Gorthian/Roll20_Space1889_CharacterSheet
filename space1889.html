@@ -1,7 +1,7 @@
 <!--
 	EDITED by 			Gorthian
 	Version				1.0
-	Letzte Änderung		2022-05-03
+	Letzte Änderung		2022-05-07
 	
 	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
@@ -36,7 +36,7 @@
 		</div>
 		<div class="sheet-style">
 			<h1><span data-i18n="style"></h1>
-			<p><textarea name="attr_style" value=""></textarea></p>
+				<p><input type="number" name="attr_style" /></p>
 		</div>
 		<div class="sheet-health">
 			<h1><span data-i18n="health"></h1>
@@ -44,6 +44,22 @@
 		</div>
 		<div class="sheet-skills">
 			<h1><span data-i18n="skills"></h1>
+			<fieldset class="repeating_skills">
+				<div class="sheet-skills sheet-nowrap">
+					<input type="text" name="attr_skill-name" value="">
+					<select name="attr_skill-attribute">
+						<option value="constitution" data-i18n="constitution-short"></option>
+						<option value="dexterity" data-i18n="dexterity-short"></option>
+						<option value="strength" data-i18n="strength-short"></option>
+						<option value="charisma" data-i18n="charisma-short"></option>
+						<option value="intelligence" data-i18n="intelligence-short"></option>
+						<option value="willpower" data-i18n="willpower-short"></option>
+					</select>
+					+<input type="text" name="attr_skill-level" value="">
+					=<input type="text" name="attr_skill-value" value="">
+					(<input type="text" name="attr_skill-average" value="">)
+				</div>
+			</fieldset>
 		</div>
 		<div class="sheet-combat">
 			<h1><span data-i18n="combat"></h1>
