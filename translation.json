@@ -26,5 +26,17 @@
   "perception" : "Wahrnehmung",
   "initiative" : "Initiative",
   "defense" : "Abwehr",
-  "stunned" : "Betäubt"
+  "stunned" : "Betäubt",
+  "weapon"  : "Waffe",
+  "damage"  : "Schaden",
+  "modifier"  : "Modifikator",
+  "attack"  : "Angriffswert",
+  "average"  : "Durchschnitt",
+  "range"  : "Reichweite",
+  "capacity"  : "Kapazität",
+  "firerate"  : "Feuerrate",
+  "speed"  : "Tempo",
+  "weight"  : "Gewicht",
+  "ammo"  : "Munition",
+  "note"  : "Notiz"
 }

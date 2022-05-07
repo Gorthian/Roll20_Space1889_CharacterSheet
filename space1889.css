@@ -117,3 +117,16 @@ div.sheet-box {
 div.sheet-skillentry {
 	display				: flex;
 }
+
+div.sheet-weaponentry {
+	display				: flex;
+	flex-wrap			: wrap;
+}
+
+div.sheet-weaponattribute {
+	display				: flex;
+	flex-direction		: column;
+	justify-content		: center;
+	text-align			: center;
+	margin				: 2px;
+}

@@ -36,7 +36,7 @@
 		</div>
 		<div class="sheet-style sheet-box">
 			<h1><span data-i18n="style"></h1>
-				<p><input type="number" name="attr_style" /></p>
+			<p><input type="number" name="attr_style" /></p>
 		</div>
 		<div class="sheet-health sheet-box">
 			<h1><span data-i18n="health"></h1>
@@ -63,9 +63,25 @@
 		</div>
 		<div class="sheet-combat sheet-box">
 			<h1><span data-i18n="combat"></h1>
+			<fieldset class="repeating_waepons">
+				<div class="sheet-weaponentry">
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="weapon"></span><input type="text" name="attr_weapon-name" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="damage"></span><input type="number" name="attr_weapon-damage" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="modifier"></span><input type="number" name="attr_weapon-modifier" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="attack"></span><input type="number" name="attr_weapon-attack" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="average"></span><input type="number" name="attr_weapon-average" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="range"></span><input type="number" name="attr_weapon-range" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="capacity"></span><input type="number" name="attr_weapon-capacity" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="firerate"></span><input type="number" name="attr_weapon-firerate" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="speed"></span><input type="number" name="attr_weapon-speed" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="weight"></span><input type="number" name="attr_weapon-weight" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="ammo"></span><input type="number" name="attr_weapon-ammo" value""/></div>
+					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="note"></span><input type="text" name="attr_weapon-note" value=""></div>
+				</div>
+			</fieldset>
 		</div>
 		<div class="sheet-misc sheet-box">
-			<h1><span data-i18n="misc"></h1>
+			<h1><span data-i18n="misc"></h1>			
 		</div>
 	</div>
 	<div class="sheet-footer">
