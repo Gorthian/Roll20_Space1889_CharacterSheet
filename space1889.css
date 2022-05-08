@@ -14,10 +14,15 @@
 div.sheet-wrapper {
 	--sheet-bg			: #ffffff;
 	--sheet-text-color	: #000000;	
+	--line-height		: 30px;
 }
 
 .sheet-nowrap {
 	white-space			: nowrap;
+}
+
+div.sheet-space1889 {
+	line-height		: var(--line-height);
 }
 
 /*             GRIDS                               */
@@ -136,6 +141,12 @@ div.sheet-weaponattribute {
 	width	: auto;
 }
 
+div.sheet-space1889 div.sheet-content :is(input, select) {
+	height	: 30px;
+	margin	: 0px;
+	padding : 4px;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input:read-only:-webkit-outer-spin-button,
 input:read-only::-webkit-inner-spin-button {
@@ -145,5 +156,6 @@ input:read-only::-webkit-inner-spin-button {
 
 /* Firefox */
 input[type=number]:read-only {
-  -moz-appearance: textfield;
+  -moz-appearance	: textfield;
+  text-align		: center;
 }
