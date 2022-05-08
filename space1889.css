@@ -141,8 +141,8 @@ div.sheet-weaponattribute {
 	width	: auto;
 }
 
-div.sheet-space1889 div.sheet-content :is(input, select) {
-	height	: 30px;
+div.sheet-space1889 div.sheet-content :is(input, select, button) {
+	height	: var(--line-height);
 	margin	: 0px;
 	padding : 4px;
 }
