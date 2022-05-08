@@ -18,20 +18,20 @@
 		</div>
 		<div class="sheet-primary-attributes sheet-box">
 			<h1><span data-i18n="primary-attributes"></h1>
-			<p><span class="sheet-label" data-i18n="constitution"></span><input type="number" name="attr_constitution" /></p>
-			<p><span class="sheet-label" data-i18n="dexterity"></span><input type="number" name="attr_dexterity" /></p>
-			<p><span class="sheet-label" data-i18n="strength"></span><input type="number" name="attr_strength" /></p>
-			<p><span class="sheet-label" data-i18n="charisma"></span><input type="number" name="attr_charisma" /></p>
-			<p><span class="sheet-label" data-i18n="intelligence"></span><input type="number" name="attr_intelligence" /></p>
-			<p><span class="sheet-label" data-i18n="willpower"></span><input type="number" name="attr_willpower" /></p>
+			<p><span class="sheet-label" data-i18n="constitution"></span><input type="number" name="attr_constitution" /><button type="roll" value="&{template:default} {{name=^{constitution} (@{character_name}) }} {{^{successes}=[[{(@{constitution}+@{constitution}+?{Mod|0})d6}>3]]}}" name="roll_constitution"></button></p>
+			<p><span class="sheet-label" data-i18n="dexterity"></span><input type="number" name="attr_dexterity" /><button type="roll" value="&{template:default} {{name=^{dexterity} (@{character_name}) }} {{^{successes}=[[{(@{dexterity}+@{dexterity}+?{Mod|0})d6}>3]]}}" name="roll_dexterity"></button></p>
+			<p><span class="sheet-label" data-i18n="strength"></span><input type="number" name="attr_strength" /><button type="roll" value="&{template:default} {{name=^{strength} (@{character_name}) }} {{^{successes}=[[{(@{strength}+@{strength}+?{Mod|0})d6}>3]]}}" name="roll_strength"></button></p>
+			<p><span class="sheet-label" data-i18n="charisma"></span><input type="number" name="attr_charisma" /><button type="roll" value="&{template:default} {{name=^{charisma} (@{character_name}) }} {{^{successes}=[[{(@{charisma}+@{charisma}+?{Mod|0})d6}>3]]}}" name="roll_charisma"></button></p>
+			<p><span class="sheet-label" data-i18n="intelligence"></span><input type="number" name="attr_intelligence" /><button type="roll" value="&{template:default} {{name=^{intelligence} (@{character_name}) }} {{^{successes}=[[{(@{intelligence}+@{intelligence}+?{Mod|0})d6}>3]]}}" name="roll_intelligence"></button></p>
+			<p><span class="sheet-label" data-i18n="willpower"></span><input type="number" name="attr_willpower" /><button type="roll" value="&{template:default} {{name=^{willpower} (@{character_name}) }} {{^{successes}=[[{(@{willpower}+@{willpower}+?{Mod|0})d6}>3]]}}" name="roll_willpower"></button></p>
 		</div>
 		<div class="sheet-secondary-attributes sheet-box">
 			<h1><span data-i18n="secondary-attributes"></h1>
 			<p><span class="sheet-label" data-i18n="size"></span><input type="number" name="attr_size-calc" readonly/><input type="number" name="attr_size-mod" /><input type="number" name="attr_size-sum" readonly/></p>
 			<p><span class="sheet-label" data-i18n="movement"></span><input type="number" name="attr_movement-calc" readonly/><input type="number" name="attr_movement-mod" /><input type="number" name="attr_movement-sum" readonly/></p>
-			<p><span class="sheet-label" data-i18n="perception"></span><input type="number" name="attr_perception-calc" readonly/><input type="number" name="attr_perception-mod" /><input type="number" name="attr_perception-sum" readonly/></p>
-			<p><span class="sheet-label" data-i18n="initiative"></span><input type="number" name="attr_initiative-calc" readonly/><input type="number" name="attr_initiative-mod" /><input type="number" name="attr_initiative-sum" readonly/></p>
-			<p><span class="sheet-label" data-i18n="defense"></span><input type="number" name="attr_defense-calc" readonly/><input type="number" name="attr_defense-mod" /><input type="number" name="attr_defense-sum" readonly/></p>
+			<p><span class="sheet-label" data-i18n="perception"></span><input type="number" name="attr_perception-calc" readonly/><input type="number" name="attr_perception-mod" /><input type="number" name="attr_perception-sum" readonly/><button type="roll" value="&{template:default} {{name=^{perception} (@{character_name}) }} {{^{successes}=[[{(@{perception-sum}+?{Mod|0})d6}>3]]}}" name="roll_perception"></button></p>
+			<p><span class="sheet-label" data-i18n="initiative"></span><input type="number" name="attr_initiative-calc" readonly/><input type="number" name="attr_initiative-mod" /><input type="number" name="attr_initiative-sum" readonly/><button type="roll" value="&{template:default} {{name=^{initiative} (@{character_name}) }} {{^{successes}=[[{(@{initiative-sum}+?{Mod|0})d6}>3]]}}" name="roll_initiative"></button></p>
+			<p><span class="sheet-label" data-i18n="defense"></span><input type="number" name="attr_defense-calc" readonly/><input type="number" name="attr_defense-mod" /><input type="number" name="attr_defense-sum" readonly/><button type="roll" value="&{template:default} {{name=^{defense} (@{character_name}) }} {{^{successes}=[[{(@{defense-sum}+?{Mod|0})d6}>3]]}}" name="roll_defense"></button></p>
 			<p><span class="sheet-label" data-i18n="stunned"></span><input type="number" name="attr_stunned-calc" readonly/><input type="number" name="attr_stunned-mod" /><input type="number" name="attr_stunned-sum" readonly/></p>
 		</div>
 		<div class="sheet-style sheet-box">
@@ -58,6 +58,7 @@
 					+<input type="number" name="attr_skill-level" value="" />
 					=<input type="number" name="attr_skill-value" value="" readonly/>
 					(<input type="number" name="attr_skill-average" value="" readonly/>)
+					<button type="roll" value="&{template:default} {{name=@{skill-name} (@{character_name}) }} {{^{successes}=[[{(@{skill-value}+?{Mod|0})d6}>3]]}}" name="roll_skill"></button>
 				</div>
 			</fieldset>
 		</div>
@@ -107,8 +108,6 @@
 	</div>	
 </div>
 
-<!-- Roll Templates /-->
-
 <!-- SheetWorker //-->
 <script type="text/worker">
 	/* Globale Variablen -- Start */
@@ -140,7 +139,7 @@
 	on("change:repeating_skills:skill-attribute change:repeating_skills:skill-level ", function() {
 		console.log("[CHANGE] Skill");
 		changedSkill();
-	 });
+	});
 
 	/* Event-Listener -- Ende */	
 		

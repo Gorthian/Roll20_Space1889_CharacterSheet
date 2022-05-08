@@ -40,5 +40,6 @@
   "note"  : "Notiz",
   "talents" : "Talente",
   "ressources" : "Ressourcen",
-  "weaknesses" : "Schwächen"
+  "weaknesses" : "Schwächen",
+  "successes" : "Erfolge"
 }
