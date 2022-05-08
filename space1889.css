@@ -1,7 +1,7 @@
 /*
 	EDITED by 			Gorthian
 	Version				1.0
-	Letzte Änderung		2022-05-07
+	Letzte Änderung		2022-05-08
 	
 	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
@@ -130,4 +130,20 @@ div.sheet-weaponattribute {
 	justify-content		: center;
 	text-align			: center;
 	margin				: 2px;
+}
+
+:is(div.sheet-weaponattribute, div.sheet-skillentry) select{
+	width	: auto;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input:read-only:-webkit-outer-spin-button,
+input:read-only::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number]:read-only {
+  -moz-appearance: textfield;
 }

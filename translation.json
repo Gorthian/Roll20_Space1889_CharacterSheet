@@ -41,5 +41,7 @@
   "talents" : "Talente",
   "ressources" : "Ressourcen",
   "weaknesses" : "Schwächen",
-  "successes" : "Erfolge"
+  "successes" : "Erfolge",
+  "lethal" : "Tödlich",
+  "nonlethal" : "Nicht tödlich"
 }
