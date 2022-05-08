@@ -1,7 +1,7 @@
 <!--
 	EDITED by 			Gorthian
 	Version				1.0
-	Letzte Änderung		2022-05-07
+	Letzte Änderung		2022-05-0
 	
 	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
@@ -46,7 +46,7 @@
 			<h1><span data-i18n="skills"></h1>
 			<fieldset class="repeating_skills">
 				<div class="sheet-skillentry">
-					<input type="text" name="attr_skill-name" value="">
+					<input type="text" name="attr_skill-name" value="" />
 					<select name="attr_skill-attribute">
 						<option value="constitution" data-i18n="constitution-short"></option>
 						<option value="dexterity" data-i18n="dexterity-short"></option>
@@ -55,9 +55,9 @@
 						<option value="intelligence" data-i18n="intelligence-short"></option>
 						<option value="willpower" data-i18n="willpower-short"></option>
 					</select>
-					+<input type="number" name="attr_skill-level" value="">
-					=<input type="number" name="attr_skill-value" value="">
-					(<input type="number" name="attr_skill-average" value="">)
+					+<input type="number" name="attr_skill-level" value="" />
+					=<input type="number" name="attr_skill-value" value="" readonly/>
+					(<input type="number" name="attr_skill-average" value="" readonly/>)
 				</div>
 			</fieldset>
 		</div>
@@ -136,6 +136,12 @@
         });
     });
 
+	/* Änderungen an Talenten */
+	on("change:repeating_skills:skill-attribute change:repeating_skills:skill-level ", function() {
+		console.log("[CHANGE] Skill");
+		changedSkill();
+	 });
+
 	/* Event-Listener -- Ende */	
 		
 	/* Funktionen -- Start */
@@ -145,6 +151,23 @@
 			changedAttribute(sAttribute);
 		});
 	};
+
+	function changedSkill() {
+		console.log("[changedSkill]");
+
+		getAttrs(["repeating_skills_skill-attribute","repeating_skills_skill-level"], function(values) {
+			let sAttribute = values["repeating_skills_skill-attribute"];
+			let iSkillLevel = parseInt(values["repeating_skills_skill-level"]||0);
+			
+			getAttrs([sAttribute], function(values) {
+				let iAttributeValue = parseInt(values[sAttribute]||0);
+				let iSkillSum = iAttributeValue + iSkillLevel;
+			
+				aAttributes["repeating_skills_skill-value"] = iSkillSum;
+				setAttrs(aAttributes);
+			});
+		});
+	}
 
 	function changedAttribute(sAttribute) {
 		console.log("[changedAttribute] " + sAttribute);
