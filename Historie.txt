@@ -1,3 +1,5 @@
-2022-05-08
+2022-08-18
+- Bugfix Issue #1: Berechnung Wahrnehmung
 
-Release v1.0
+2022-05-08
+- Release v1.0
