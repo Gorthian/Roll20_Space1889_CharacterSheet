@@ -2,7 +2,7 @@
 ## 2022-05-18 V1.0
 Community-Bogen für Space 1889 (Ubiquity)
 
-<br>Github - https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
+Github - https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 <br>Wiki - https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
 <br>Bugs - https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/issues
 <br>Historie - https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/blob/main/Historie.txt
