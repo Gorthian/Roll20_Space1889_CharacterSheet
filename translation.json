@@ -2,6 +2,7 @@
   "name" : "Name",
   "archetype" : "Archetyp",
   "motivation" : "Motivation",
+  "attribute" : "Attribut",
   "primary-attributes" : "Primäre Attribute",
   "secondary-attributes" : "Sekundäre Attribute",
   "style" : "Stil",
@@ -46,5 +47,7 @@
   "nonlethal" : "Nicht tödlich",
   "value" : "Wert",
   "modificator-short" : "Mod.",
-  "sum" : "Summe"
+  "sum" : "Summe",
+  "level" : "Stufe",
+  "average" : "Durchschnitt"
 }

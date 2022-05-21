@@ -120,10 +120,6 @@ div.sheet-box {
 	margin				: 5px;
 }
 
-div.sheet-skillentry {
-	display				: flex;
-}
-
 div.sheet-weaponentry {
 	display				: flex;
 	flex-wrap			: wrap;
@@ -159,6 +155,10 @@ div.sheet-table-row {
 
 div.sheet-table-col {
 	display				: table-cell;
+}
+
+hr {
+	border-color		: black;
 }
 
 /* Chrome, Safari, Edge, Opera */
