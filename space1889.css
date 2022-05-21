@@ -104,6 +104,22 @@ div.sheet-combat {
 div.sheet-misc {
 	display					: grid;
 	grid-area				: misc;
+	grid-template-areas		: "talents ressources weaknesses"
+}
+
+div.sheet-talents {
+	display					: grid;
+	grid-area				: talents;
+}
+
+div.sheet-ressources {
+	display					: grid;
+	grid-area				: ressources;
+}
+
+div.sheet-weaknesses {
+	display					: grid;
+	grid-area				: weaknesses;
 }
 
 div.sheet-footer {

@@ -89,38 +89,39 @@
 		</div>
 		<div class="sheet-skills sheet-box">
 			<h1><span data-i18n="skills"></h1>						
-				<fieldset class="repeating_skills">
-					<div class="sheet-table">
-						<div class="sheet-table-row">
-							<div class="sheet-table-col"><span class="sheet-label" data-i18n="name"></span></div>
-							<div class="sheet-table-col"><span class="sheet-label" data-i18n="attribute"></span></div>
-							<div class="sheet-table-col"><span class="sheet-label" data-i18n="level"></span></div>
-							<div class="sheet-table-col"><span class="sheet-label" data-i18n="value"></span></div>
-							<div class="sheet-table-col"><span class="sheet-label" data-i18n="average"></span></div>
-							<div class="sheet-table-col"></div>
-						</div>
-						<div class="sheet-table-row sheet-skillentry">
-							<div class="sheet-table-col"><input type="text" name="attr_skill-name" value="" /></div>
-							<div class="sheet-table-col">
-								<select name="attr_skill-attribute">
-									<option value="constitution" data-i18n="constitution-short"></option>
-									<option value="dexterity" data-i18n="dexterity-short"></option>
-									<option value="strength" data-i18n="strength-short"></option>
-									<option value="charisma" data-i18n="charisma-short"></option>
-									<option value="intelligence" data-i18n="intelligence-short"></option>
-									<option value="willpower" data-i18n="willpower-short"></option>
-								</select>
-							</div>
-							<div class="sheet-table-col">+<input type="number" name="attr_skill-level" value="" /></div>
-							<div class="sheet-table-col">=<input type="number" name="attr_skill-value" value="" readonly/></div>
-							<div class="sheet-table-col">(<input type="number" name="attr_skill-average" value="" readonly/>)</div>
-							<div class="sheet-table-col"><button type="roll" value="&{template:default} {{name=@{skill-name} (@{character_name}) }} {{^{successes}=[[{(@{skill-value}+?{Mod|0})d2}>2]]}}" name="roll_skill"></button></div>
-						</div>
+			<fieldset class="repeating_skills">
+			<div class="sheet-skillentry sheet-box">
+				<div class="sheet-table">
+					<div class="sheet-table-row">
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="name"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="attribute"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="level"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="value"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="average"></span></div>
+						<div class="sheet-table-col"></div>
 					</div>
-					<hr/>
-				</fieldset>
+					<div class="sheet-table-row sheet-skillentry">
+						<div class="sheet-table-col"><input type="text" name="attr_skill-name" value="" /></div>
+						<div class="sheet-table-col">
+							<select name="attr_skill-attribute">
+								<option value="constitution" data-i18n="constitution-short"></option>
+								<option value="dexterity" data-i18n="dexterity-short"></option>
+								<option value="strength" data-i18n="strength-short"></option>
+								<option value="charisma" data-i18n="charisma-short"></option>
+								<option value="intelligence" data-i18n="intelligence-short"></option>
+								<option value="willpower" data-i18n="willpower-short"></option>
+							</select>
+						</div>
+						<div class="sheet-table-col">+<input type="number" name="attr_skill-level" value="" /></div>
+						<div class="sheet-table-col">=<input type="number" name="attr_skill-value" value="" readonly/></div>
+						<div class="sheet-table-col">(<input type="number" name="attr_skill-average" value="" readonly/>)</div>
+						<div class="sheet-table-col"><button type="roll" value="&{template:default} {{name=@{skill-name} (@{character_name}) }} {{^{successes}=[[{(@{skill-value}+?{Mod|0})d2}>2]]}}" name="roll_skill"></button></div>
+					</div>
+				</div>
+			</div>
+			</fieldset>
 		</div>
-		<div class="sheet-combat">
+		<div class="sheet-combat sheet-box">
 			<h1><span data-i18n="combat"></h1>
 			<fieldset class="repeating_weapons">
 			<div class="sheet-weaponentry sheet-box">
@@ -169,24 +170,23 @@
 						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-ammo" value=""/></div>
 					</div>
 				</div>
-				<hr/>
 			</div>
 			</fieldset>
 		</div>
 		<div class="sheet-misc">
-			<div class="sheet-box">
+			<div class="sheet-box sheet-talents">
 				<h2><span data-i18n="talents"></span></h2>
 				<fieldset class="repeating_talents">
 					<input type="text" name="attr_talent-name" value="">
 				</fieldset>
 			</div>
-			<div class="sheet-box">
+			<div class="sheet-box sheet-ressources">
 				<h2><span data-i18n="ressources"></span></h2>
 				<fieldset class="repeating_ressources">
 					<input type="text" name="attr_ressources-name" value="">
 				</fieldset>
 			</div>
-			<div class="sheet-box">
+			<div class="sheet-box sheet-weaknesses">
 				<h2><span data-i18n="weaknesses"></span></h2>
 				<fieldset class="repeating_weaknesses">
 					<input type="text" name="attr_weakness-name" value="">
