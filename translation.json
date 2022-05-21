@@ -43,5 +43,8 @@
   "weaknesses" : "Schwächen",
   "successes" : "Erfolge",
   "lethal" : "Tödlich",
-  "nonlethal" : "Nicht tödlich"
+  "nonlethal" : "Nicht tödlich",
+  "value" : "Wert",
+  "modificator-short" : "Mod.",
+  "sum" : "Summe"
 }

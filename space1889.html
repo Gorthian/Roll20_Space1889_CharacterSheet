@@ -1,7 +1,7 @@
 <!--
 	EDITED by 			Gorthian
-	Version				1.0.2
-	Letzte Änderung		2022-05-19
+	Version				1.1.0
+	Letzte Änderung		2022-05-21
 	
 	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
@@ -27,12 +27,57 @@
 		</div>
 		<div class="sheet-secondary-attributes sheet-box">
 			<h1><span data-i18n="secondary-attributes"></h1>
-			<p><span class="sheet-label" data-i18n="size"></span><input type="number" name="attr_size-calc" readonly/><input type="number" name="attr_size-mod" /><input type="number" name="attr_size-sum" readonly/></p>
-			<p><span class="sheet-label" data-i18n="movement"></span><input type="number" name="attr_movement-calc" readonly/><input type="number" name="attr_movement-mod" /><input type="number" name="attr_movement-sum" readonly/></p>
-			<p><span class="sheet-label" data-i18n="perception"></span><input type="number" name="attr_perception-calc" readonly/><input type="number" name="attr_perception-mod" /><input type="number" name="attr_perception-sum" readonly/><button type="roll" value="&{template:default} {{name=^{perception} (@{character_name}) }} {{^{successes}=[[{(@{perception-sum}+?{Mod|0})d2}>2]]}}" name="roll_perception"></button></p>
-			<p><span class="sheet-label" data-i18n="initiative"></span><input type="number" name="attr_initiative-calc" readonly/><input type="number" name="attr_initiative-mod" /><input type="number" name="attr_initiative-sum" readonly/><button type="roll" value="&{template:default} {{name=^{initiative} (@{character_name}) }} {{^{successes}=[[{(@{initiative-sum}+?{Mod|0})d2}>2]]}}" name="roll_initiative"></button></p>
-			<p><span class="sheet-label" data-i18n="defense"></span><input type="number" name="attr_defense-calc" readonly/><input type="number" name="attr_defense-mod" /><input type="number" name="attr_defense-sum" readonly/><button type="roll" value="&{template:default} {{name=^{defense} (@{character_name}) }} {{^{successes}=[[{(@{defense-sum}+?{Mod|0})d2}>2]]}}" name="roll_defense"></button></p>
-			<p><span class="sheet-label" data-i18n="stunned"></span><input type="number" name="attr_stunned-calc" readonly/><input type="number" name="attr_stunned-mod" /><input type="number" name="attr_stunned-sum" readonly/></p>
+			<div class="sheet-table">
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"></div>
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="value"></span></div>
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="modificator-short"></span></div>
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="sum"></span></div>
+					<div class="sheet-table-col"></div>
+				</div>
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="size"></span></div>
+					<div class="sheet-table-col"><input type="number" name="attr_size-calc" readonly/></div>
+					<div class="sheet-table-col"><input type="number" name="attr_size-mod" /></div>
+					<div class="sheet-table-col"><input type="number" name="attr_size-sum" readonly/></div>
+					<div class="sheet-table-col"></div>
+				</div>
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="movement"></span></div>
+					<div class="sheet-table-col"><input type="number" name="attr_movement-calc" readonly/></div>
+					<div class="sheet-table-col"><input type="number" name="attr_movement-mod" /></div>
+					<div class="sheet-table-col"><input type="number" name="attr_movement-sum" readonly/></div>
+					<div class="sheet-table-col"></div>
+				</div>
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="perception"></span></div>
+					<div class="sheet-table-col"><input type="number" name="attr_perception-calc" readonly/></div>
+					<div class="sheet-table-col"><input type="number" name="attr_perception-mod" /></div>
+					<div class="sheet-table-col"><input type="number" name="attr_perception-sum" readonly/></div>
+					<div class="sheet-table-col"><button type="roll" value="&{template:default} {{name=^{perception} (@{character_name}) }} {{^{successes}=[[{(@{perception-sum}+?{Mod|0})d2}>2]]}}" name="roll_perception"></button></div>
+				</div>
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="initiative"></span></div>
+					<div class="sheet-table-col"><input type="number" name="attr_initiative-calc" readonly/></div>
+					<div class="sheet-table-col"><input type="number" name="attr_initiative-mod" /></div>
+					<div class="sheet-table-col"><input type="number" name="attr_initiative-sum" readonly/></div>
+					<div class="sheet-table-col"><button type="roll" value="&{template:default} {{name=^{initiative} (@{character_name}) }} {{^{successes}=[[{(@{initiative-sum}+?{Mod|0})d2}>2]]}}" name="roll_initiative"></button></div>
+				</div>
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="defense"></span></div>
+					<div class="sheet-table-col"><input type="number" name="attr_defense-calc" readonly/></div>
+					<div class="sheet-table-col"><input type="number" name="attr_defense-mod" /></div>
+					<div class="sheet-table-col"><input type="number" name="attr_defense-sum" readonly/></div>
+					<div class="sheet-table-col"><button type="roll" value="&{template:default} {{name=^{defense} (@{character_name}) }} {{^{successes}=[[{(@{defense-sum}+?{Mod|0})d2}>2]]}}" name="roll_defense"></button></div>
+				</div>
+				<div class="sheet-table-row">
+					<div class="sheet-table-col"><span class="sheet-label" data-i18n="stunned"></span></div>
+					<div class="sheet-table-col"><input type="number" name="attr_stunned-calc" readonly/></div>
+					<div class="sheet-table-col"><input type="number" name="attr_stunned-mod" /></div>
+					<div class="sheet-table-col"><input type="number" name="attr_stunned-sum" readonly/></div>
+					<div class="sheet-table-col"></div>
+				</div>
+			</div>						
 		</div>
 		<div class="sheet-style sheet-box">
 			<h1><span data-i18n="style"></h1>

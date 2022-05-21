@@ -1,7 +1,7 @@
 /*
 	EDITED by 			Gorthian
-	Version				1.0.2
-	Letzte Änderung		2022-05-19
+	Version				1.1.0
+	Letzte Änderung		2022-05-21
 	
 	GitHub				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet
 	Wiki				https://github.com/Gorthian/Roll20_Space1889_CharacterSheet/wiki
@@ -145,6 +145,20 @@ div.sheet-space1889 div.sheet-content :is(input, select, button) {
 	height	: var(--line-height);
 	margin	: 0px;
 	padding : 4px;
+}
+
+div.sheet-table {
+	display				: table;
+	width				: 100%;
+}
+
+div.sheet-table-row {
+	display				: table-row;
+	width				: 100%;
+}
+
+div.sheet-table-col {
+	display				: table-cell;
 }
 
 /* Chrome, Safari, Edge, Opera */
