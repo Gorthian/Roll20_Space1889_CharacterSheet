@@ -49,5 +49,7 @@
   "modificator-short" : "Mod.",
   "sum" : "Summe",
   "level" : "Stufe",
-  "average" : "Durchschnitt"
+  "weapon-fast" : "Schnell (S)",
+  "weapon-average" : "Durchschnittlich (D)",
+  "weapon-slow" : "Langsam (L)"
 }

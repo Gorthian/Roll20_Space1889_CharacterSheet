@@ -121,19 +121,6 @@ div.sheet-box {
 	margin				: 5px;
 }
 
-div.sheet-weaponentry {
-	display				: flex;
-	flex-wrap			: wrap;
-}
-
-div.sheet-weaponattribute {
-	display				: flex;
-	flex-direction		: column;
-	justify-content		: center;
-	text-align			: center;
-	margin				: 2px;
-}
-
 :is(div.sheet-weaponattribute, div.sheet-skillentry) select{
 	width	: auto;
 }

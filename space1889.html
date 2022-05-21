@@ -123,26 +123,54 @@
 		<div class="sheet-combat">
 			<h1><span data-i18n="combat"></h1>
 			<fieldset class="repeating_weapons">
-				<div class="sheet-weaponentry sheet-box">
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="weapon"></span><input type="text" name="attr_weapon-name" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="damage"></span>
-						<select name="attr_weapon-damage">
-							<option value="lethal" data-i18n="lethal"></option>
-							<option value="nonlethal" data-i18n="nonlethal"></option>							
-						</select>
+			<div class="sheet-weaponentry sheet-box">
+				<div class="sheet-table">
+					<div class="sheet-table-row">
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="weapon"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="damage"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="speed"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="modifier"></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="attack"></span></span></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="average"></span></div>
 					</div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="modifier"></span><input type="number" name="attr_weapon-modifier" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="attack"></span><input type="number" name="attr_weapon-attack" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="average"></span><input type="number" name="attr_weapon-average" value="" readonly/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="range"></span><input type="number" name="attr_weapon-range" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="capacity"></span><input type="number" name="attr_weapon-capacity" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="firerate"></span><input type="number" name="attr_weapon-firerate" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="speed"></span><input type="number" name="attr_weapon-speed" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="weight"></span><input type="number" name="attr_weapon-weight" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="ammo"></span><input type="number" name="attr_weapon-ammo" value=""/></div>
-					<div class="sheet-weaponattribute"><span class="sheet-label" data-i18n="note"></span><input type="text" name="attr_weapon-note" value=""></div>
-					<button type="roll" value="&{template:default} {{name=@{weapon-name} (@{character_name})}} {{^{successes}=[[{(@{weapon-attack}+@{weapon-modifier}+?{Mod|0})d2}>2]]}} {{^{damage}=^{@{weapon-damage}}}}" name="roll_skill"></button>
+					<div class="sheet-table-row">
+						<div class="sheet-table-col sheet-weaponattribute"><input type="text" name="attr_weapon-name" value=""/></div>
+						<div class="sheet-table-col sheet-weaponattribute">
+							<input type="number" name="attr_weapon-damage-value" value=""/>
+							<select name="attr_weapon-damage-type">
+								<option value="lethal" data-i18n="lethal"></option>
+								<option value="nonlethal" data-i18n="nonlethal"></option>							
+							</select>
+						</div>
+						<div class="sheet-table-col sheet-weaponattribute">
+							<select name="attr_weapon-speed">
+								<option value="S" data-i18n="weapon-fast"></option>
+								<option value="D" data-i18n="weapon-average" SELECTED></option>
+								<option value="L" data-i18n="weapon-slow"></option>
+							</select>
+						</div>
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-modifier" value=""/></div>
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-attack" value=""/></div>
+						<div class="sheet-table-col sheet-weaponattribute">(<input type="number" name="attr_weapon-average" value="" readonly/>)</div>
+						<div class="sheet-table-col sheet-weaponattribute"><button type="roll" value="&{template:default} {{name=@{weapon-name} (@{character_name})}} {{^{successes}=[[{(@{weapon-attack}+@{weapon-modifier}+?{Mod|0})d2}>2]]}} {{^{damage}=@{weapon-damage-value} ^{@{weapon-damage-type}}}}" name="roll_skill"></button></div>
+					</div>
 				</div>
+				<div class="sheet-table">
+					<div class="sheet-table-row">
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="range"></span></div>
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-range" value=""/></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="capacity"></span></div>
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-capacity" value=""/></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="firerate"></span></div>
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-firerate" value=""/></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="weight"></span></div>
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-weight" value=""/></div>
+						<div class="sheet-table-col"><span class="sheet-label" data-i18n="ammo"></span></div>						
+						<div class="sheet-table-col sheet-weaponattribute"><input type="number" name="attr_weapon-ammo" value=""/></div>
+					</div>
+				</div>
+				<hr/>
+			</div>
 			</fieldset>
 		</div>
 		<div class="sheet-misc">
